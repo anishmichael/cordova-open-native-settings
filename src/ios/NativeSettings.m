@@ -32,7 +32,12 @@
         result = [self do_open:[prefix stringByAppendingString:@"General&path=About"]];
     }
     else if ([key isEqualToString:@"accessibility"]) {
+        if(SYSTEM_VERSION_LESS_THAN(@"12.0")){
         result = [self do_open:[prefix stringByAppendingString:@"General&path=ACCESSIBILITY"]];
+        }
+        else{
+             result = [self do_open:[prefix stringByAppendingString:@"ACCESSIBILITY"]];
+        }
     }
     else if ([key isEqualToString:@"account"]) {
         result = [self do_open:[prefix stringByAppendingString:@"ACCOUNT_SETTINGS"]];
